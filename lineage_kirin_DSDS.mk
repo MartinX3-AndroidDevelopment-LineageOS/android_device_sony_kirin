@@ -12,15 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/lineage_kirin.mk \
-	$(LOCAL_DIR)/lineage_kirin_DSDS.mk
+# Inherit device parts
+$(call inherit-product, device/sony/kirin/aosp_i4113.mk)
 
+# Override Product Name
+PRODUCT_NAME := lineage_kirin_DSDS
 
-COMMON_LUNCH_CHOICES += \
-    lineage_kirin-eng \
-    lineage_kirin-userdebug \
-    lineage_kirin-user \
-    lineage_kirin_DSDS-eng \
-    lineage_kirin_DSDS-userdebug \
-    lineage_kirin_DSDS-user
+# Assert
+TARGET_OTA_ASSERT_DEVICE := kirin
